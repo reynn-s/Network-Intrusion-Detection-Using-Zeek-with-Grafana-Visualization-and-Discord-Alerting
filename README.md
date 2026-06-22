@@ -166,11 +166,11 @@ python3 zeek_forwarder.py
 python3 block_agent.py
 ```
 
-### [zeek_forwarder.py](zeek_forwarder.py)
+### [zeek_forwarder.py](Script/zeek_forwarder.py)
 
 The forwarder monitors five Zeek log files simultaneously using threading, forwards all entries to Loki, and sends Discord alerts for security-relevant log types.
 
-### [block_agent.py](block_agent.py)
+### [block_agent.py](Script/block_agent.py)
 
 The block agent is a Flask REST API that receives commands from the Grafana dashboard and executes iptables rules on the Ubuntu VM.
 
