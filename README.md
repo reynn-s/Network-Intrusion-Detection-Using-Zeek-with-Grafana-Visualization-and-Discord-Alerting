@@ -197,6 +197,9 @@ The Grafana dashboard provides real-time visualization across the following pane
 
 The `dashboard.json` configuration file is included in this repository.
 
+![Dashboard Preview 1](Screenshots/dashboard-preview-1.png)
+![Dashboard Preview 2](Screenshots/dashboard-preview-2.png)
+
 ---
 
 ## Attack Demonstration
@@ -209,6 +212,8 @@ nmap -sC -sV -p- --min-rate=1000 192.168.122.108
 
 Zeek detects the scan and triggers a `PortScan::Port_Scan` notice. The Grafana log alert and Discord webhook both fire with the source IP and raw log details.
 
+![Discord Alert - Port Scan](Screenshots/discord-alert-portscan.png)
+
 ### SMB Share Enumeration (enum4linux)
 
 ```bash
@@ -216,6 +221,8 @@ enum4linux -a 192.168.122.108
 ```
 
 Zeek logs SMB mapping activity. A Discord alert fires with type `SMB_MAPPING` and the attacker's source IP.
+
+![Discord Alert - SMB Enumeration](Screenshots/discord-alert-smb-enumeration.png)
 
 ### SMB File Access (smbclient)
 
@@ -227,13 +234,21 @@ smb: \> get secret.txt
 
 Zeek logs the file operation. A Discord alert fires with type `SMB_FILES` identifying unauthorized file access on the shared directory.
 
+![Discord Alert - SMB File Access](Screenshots/discord-alert-smb-fileaccess.png)
+
 ---
 
 ## Active Response
 
 The Grafana IP Block Control panel shows the latest detected attacker IP. Clicking "USE THIS IP" auto-fills the target field. Clicking "BLOCK IP" sends the IP to `block_agent.py`, which runs an iptables DROP rule on the Ubuntu VM. The blocked IP appears in the Blocked IPs list, and a Discord webhook notification confirms the action.
 
+![Active Response - Block Panel](Screenshots/active-response-panel.png)
+![Active Response - Blocked IP List](Screenshots/active-response-blocked.png)
+![Active Response - Discord Notification](Screenshots/active-response-discord.png)
+
 Blocked IPs can be removed using the "UNBLOCK IP" button. Discord will also send a notification confirming the IP has been removed from iptables.
+
+![Unblock - Discord Notification](Screenshots/unblock-discord.png)
 
 ---
 
