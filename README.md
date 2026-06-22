@@ -272,8 +272,8 @@ The system was able to detect all three stages of the simulated attack scenario:
 
 | No. | File Name | Description |
 |---|---|---|
-| 1 | [zeek_forwarder.py](zeek_forwarder.py) | Zeek log forwarder |
-| 2 | [block_agent.py](block_agent.py) | Flask active response API |
+| 1 | [zeek_forwarder.py](Script/zeek_forwarder.py) | Zeek log forwarder |
+| 2 | [block_agent.py](Script/block_agent.py) | Flask active response API |
 | 3 | detect-scan.zeek | Custom Zeek port scan detection script |
 | 4 | local.zeek | Zeek site policy configuration |
 | 5 | node.cfg | Zeek node and interface configuration |
